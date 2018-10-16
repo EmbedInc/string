@@ -13,7 +13,7 @@
 }
 module string_generic_tnam;
 define string_generic_tnam;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_generic_tnam (        {generic tree name from file name and extensions}
   in      innam: univ string_var_arg_t; {input file name (may be tree name)}

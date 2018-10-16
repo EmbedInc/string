@@ -5,7 +5,7 @@
 }
 module string_cmline_init;
 define string_cmline_init;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_cmline_init;          {init command line parsing for this program}
 

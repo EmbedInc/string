@@ -5,7 +5,7 @@
 }
 module string_WRITE;
 define string_write;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_write (               {write string to standard output, close line}
   in      s: univ string_var_arg_t);   {string to write}

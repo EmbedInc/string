@@ -8,7 +8,7 @@
 }
 module string_substr;
 define string_substr;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_substr (              {extract substring from a string}
   in      s1: univ string_var_arg_t;   {input string to extract from}

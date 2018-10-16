@@ -10,7 +10,7 @@
 }
 module string_fnam_unextend;
 define string_fnam_unextend;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_fnam_unextend (       {remove filename extension if there}
   in      innam: univ string_var_arg_t; {input file name (OK if no extension)}

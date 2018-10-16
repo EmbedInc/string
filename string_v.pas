@@ -9,7 +9,7 @@
 }
 module string_v;
 define string_v;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 function string_v (                    {convert Pascal STRING to variable string}
   in      char80: string)              {input of STRING data type}

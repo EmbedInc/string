@@ -7,7 +7,7 @@ define string_f_fp_free;
 define string_f_fp_fixed;
 define string_f_fp_ftn;
 define string_f_fp;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 {
 ************************************
 *

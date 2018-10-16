@@ -6,7 +6,7 @@
 }
 module string_find;
 define string_find;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_find (                {find substring in a reference string}
   in      token: univ string_var_arg_t; {substring to look for}

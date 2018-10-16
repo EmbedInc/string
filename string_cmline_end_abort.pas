@@ -5,7 +5,7 @@
 }
 module string_CMLINE_END_ABORT;
 define string_cmline_end_abort;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_cmline_end_abort;     {abort if unread tokens left on command line}
 

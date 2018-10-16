@@ -4,7 +4,7 @@
 }
 module string_f_intco;
 define string_f_intco;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_f_intco (             {make 3 char octal from character}
   in out  s: univ string_var_arg_t;    {output string}

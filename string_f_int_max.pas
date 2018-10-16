@@ -5,7 +5,7 @@
 }
 module string_f_int_max;
 define string_f_int_max;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_f_int_max (           {make string from largest available integer}
   in out  s: univ string_var_arg_t;    {output string}

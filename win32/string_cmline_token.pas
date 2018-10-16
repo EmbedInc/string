@@ -9,8 +9,8 @@
 }
 module string_cmline_token;
 define string_cmline_token;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
-%include '/cognivision_links/dsee_libs/string/string_sys.ins.pas';
+%include 'string2.ins.pas';
+%include 'string_sys.ins.pas';
 
 procedure string_cmline_token (        {get next token from command line}
   in out  token: univ string_var_arg_t; {returned token}

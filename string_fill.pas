@@ -7,7 +7,7 @@
 }
 module string_fill;
 define string_fill;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_fill (                {fill unused string space with blanks}
   in out  s: univ string_var_arg_t);   {string to fill, length not altered}

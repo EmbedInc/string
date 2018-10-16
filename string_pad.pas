@@ -5,7 +5,7 @@
 }
 module string_pad;
 define string_pad;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_pad (                 {extend string to max length by adding blanks}
   in out  s: univ string_var_arg_t);   {string}

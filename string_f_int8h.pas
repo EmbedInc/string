@@ -5,7 +5,7 @@
 }
 module string_f_int8h;
 define string_f_int8h;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_f_int8h (             {make HEX string from 8 bit integer}
   in out  s: univ string_var_arg_t;    {output string}

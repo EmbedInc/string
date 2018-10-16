@@ -3,7 +3,7 @@
 *   This version is for any system where the command line arguments can
 *   be accessed by the standard ARGN and ARGP arguments to the C function MAIN.
 }
-%include '/cognivision_links/dsee_libs/sys/sys_sys2.ins.pas';
+%include 'sys_sys2.ins.pas';
 
 type
   cmline_argp_t =                      {array of pointers to command line arguments}

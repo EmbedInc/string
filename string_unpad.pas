@@ -4,7 +4,7 @@
 }
 module string_unpad;
 define string_unpad;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_unpad (               {delete all trailing spaces from string}
   in out  s: univ string_var_arg_t);   {string}

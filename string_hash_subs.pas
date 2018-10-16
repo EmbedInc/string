@@ -13,8 +13,8 @@ define string_hash_pos_next;
 define string_hash_mem_alloc_del;
 define string_hash_mem_alloc_ndel;
 define string_hash_mem_dealloc;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
-%include '/cognivision_links/dsee_libs/math/math.ins.pas';
+%include 'string2.ins.pas';
+%include 'math.ins.pas';
 
 const
   int_size = sizeof(sys_int_machine_t);

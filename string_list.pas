@@ -15,7 +15,7 @@ define string_list_pos_rel;
 define string_list_pos_start;
 define string_list_trunc;
 define string_list_sort;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 {
 ********************************************************************************
 *

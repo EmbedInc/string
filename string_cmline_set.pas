@@ -11,8 +11,8 @@
 }
 module string_cmline_set;
 define string_cmline_set;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
-%include '/cognivision_links/dsee_libs/string/string_sys.ins.pas';
+%include 'string2.ins.pas';
+%include 'string_sys.ins.pas';
 
 procedure string_cmline_set (
   val     argc: sys_int_machine_t;     {number of command line arguments}

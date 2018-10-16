@@ -6,7 +6,7 @@
 }
 module string_f_bits32;
 define string_f_bits32;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_f_bits32 (            {32 digit binary string from 32 bit integer}
   in out  s: univ string_var_arg_t;    {output string}

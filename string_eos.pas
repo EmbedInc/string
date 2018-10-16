@@ -4,7 +4,7 @@
 }
 module string_eos;
 define string_eos;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 function string_eos (                  {test for END OF STRING status}
   in out  stat: sys_err_t)             {status code, reset to no error on EOS}

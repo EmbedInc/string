@@ -29,7 +29,7 @@
 module string_screen;
 define string_f_screen;
 define string_t_screen;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 var
   machine_proc: string_var16_t :=      {spec name for machine running this process}

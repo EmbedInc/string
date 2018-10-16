@@ -12,7 +12,7 @@ module string_cmline_token_fp;
 define string_cmline_token_fp1;
 define string_cmline_token_fpm;
 define string_cmline_token_fp2;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 {
 **********************************
 *

@@ -5,7 +5,7 @@
 *   string.  We parse individual tokens ourselves, using the rules for
 *   STRING_TOKEN.
 }
-%include '/cognivision_links/dsee_libs/sys/sys_sys2.ins.pas';
+%include 'sys_sys2.ins.pas';
 
 var (string_sys)
   vcmline: string_var8192_t;           {saved var string copy of command line}

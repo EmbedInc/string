@@ -7,8 +7,8 @@
 }
 module string_readin;
 define string_readin;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
-%include '/cognivision_links/dsee_libs/string/string_sys.ins.pas';
+%include 'string2.ins.pas';
+%include 'string_sys.ins.pas';
 
 procedure string_readin (              {read and unpad next line from standard input}
   in out  s: univ string_var_arg_t);   {output string}

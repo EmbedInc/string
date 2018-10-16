@@ -5,8 +5,8 @@
 module string_message;
 define string_f_message;
 define string_f_messaget;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
-%include '/cognivision_links/dsee_libs/file/file.ins.pas';
+%include 'string2.ins.pas';
+%include 'file.ins.pas';
 {
 *********************************************************************
 *

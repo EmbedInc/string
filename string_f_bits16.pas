@@ -5,7 +5,7 @@
 }
 module string_f_bits16;
 define string_f_bits16;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_f_bits16 (            {16 digit binary string from 16 bit integer}
   in out  s: univ string_var_arg_t;    {output string}

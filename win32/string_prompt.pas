@@ -5,8 +5,8 @@
 }
 module string_prompt;
 define string_prompt;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
-%include '/cognivision_links/dsee_libs/string/string_sys.ins.pas';
+%include 'string2.ins.pas';
+%include 'string_sys.ins.pas';
 
 procedure string_prompt (              {string to standard output without newline}
   in      s: univ string_var_arg_t);   {prompt string to write}

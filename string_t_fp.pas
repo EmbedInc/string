@@ -7,7 +7,7 @@ define string_t_fp1;
 define string_t_fp2;
 define string_t_fpm;
 define string_t_fpmax;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 {
 *************************
 *

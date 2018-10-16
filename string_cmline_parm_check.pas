@@ -5,7 +5,7 @@
 }
 module string_CMLINE_PARM_CHECK;
 define string_cmline_parm_check;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_cmline_parm_check (   {check for bad parameter to cmd line option}
   in      stat: sys_err_t;             {status code for reading or using parm}

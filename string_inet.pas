@@ -3,7 +3,7 @@
 module string_inet;
 define string_f_inetadr;
 define string_t_inetadr;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 {
 *******************************************************************
 }

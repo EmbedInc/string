@@ -18,7 +18,7 @@ module string_token_fp;
 define string_token_fp1;
 define string_token_fpm;
 define string_token_fp2;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 {
 **************************
 *

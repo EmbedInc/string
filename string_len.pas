@@ -10,7 +10,7 @@
 }
 module string_len;
 define string_len;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_len (                 {set length by unpadding max length string}
   in out  s: univ string_var_arg_t);   {string}

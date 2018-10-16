@@ -5,7 +5,7 @@
 }
 module string_t_bitsc;
 define string_t_bitsc;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_t_bitsc (             {convert 8 digit binary string to character}
   in      s: univ string_var_arg_t;    {input string}

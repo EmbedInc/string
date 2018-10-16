@@ -3,7 +3,7 @@
 module string_bool;
 define string_t_bool;
 define string_f_bool;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 {
 ***********************************************************************
 *

@@ -3,7 +3,7 @@
 module string_c;
 define string_t_c;
 define string_terminate_null;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 {
 **********************************************************************
 *

@@ -42,7 +42,7 @@
 module string_window;
 define string_f_window;
 define string_t_window;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 var
   window_stdout: string_var16_t :=

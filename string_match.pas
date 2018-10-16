@@ -11,7 +11,7 @@
 }
 module string_match;
 define string_match;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 function string_match (                {strings same up to length of TOKEN}
   in      token: univ string_var_arg_t; {string being tested}

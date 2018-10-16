@@ -6,7 +6,7 @@
 }
 module string_cmline_req_check;
 define string_cmline_req_check;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_cmline_req_check (    {test err after reading required cmd line arg}
   in      stat: sys_err_t);            {status code from getting command line arg}

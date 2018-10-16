@@ -7,7 +7,7 @@
 }
 module string_f_intrj;
 define string_f_intrj;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_f_intrj (             {right-justified string from machine integer}
   in out  s: univ string_var_arg_t;    {output string}

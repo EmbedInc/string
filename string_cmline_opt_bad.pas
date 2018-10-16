@@ -5,7 +5,7 @@
 }
 module string_CMLINE_OPT_BAD;
 define string_cmline_opt_bad;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_cmline_opt_bad;       {indicate last cmd line token was bad}
   options (noreturn);

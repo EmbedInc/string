@@ -4,7 +4,7 @@
 }
 module string_parity_off;
 define string_parity_off;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_parity_off (          {turn parity bits off for all chars in string}
   in out  s: univ string_var_arg_t);   {string}

@@ -3,7 +3,7 @@
 module string_compare;
 define string_compare_opts;
 define string_compare;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 {
 ********************************************************************************
 *

@@ -5,7 +5,7 @@
 }
 module string_f_bitsc;
 define string_f_bitsc;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_f_bitsc (             {make 8 digit binary string from character}
   in out  s: univ string_var_arg_t;    {output string}

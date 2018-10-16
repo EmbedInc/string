@@ -3,7 +3,7 @@
 module string_base64;
 define string_t_base64;
 define string_f_base64;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 type
   b64chunk_t = array [1 .. 4] of char; {one chunk of BASE64 encoded characters}

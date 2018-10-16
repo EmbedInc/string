@@ -6,7 +6,7 @@
 }
 module string_debug;
 define string_debug;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_debug (               {print length, max, and contents of string}
   in      s: univ string_var_arg_t);   {string to print data of}

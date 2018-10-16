@@ -14,8 +14,8 @@
 }
 module string_cmline_set;
 define string_cmline_set;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
-%include '/cognivision_links/dsee_libs/string/string_sys.ins.pas';
+%include 'string2.ins.pas';
+%include 'string_sys.ins.pas';
 
 procedure sys_init;                    {init SYS library}
   extern;

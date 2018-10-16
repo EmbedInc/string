@@ -6,7 +6,7 @@ define string_downcase_char;
 define string_upcase;
 define string_downcase;
 define string_char_printable;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 {
 *********************************************************************
 *

@@ -2,9 +2,9 @@
 }
 module string_treename_sys;
 define string_treename_local;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
-%include '/cognivision_links/dsee_libs/file/file.ins.pas';
-%include '/cognivision_links/dsee_libs/string/string_sys.ins.pas';
+%include 'string2.ins.pas';
+%include 'file.ins.pas';
+%include 'string_sys.ins.pas';
 {
 **********************************************************
 *

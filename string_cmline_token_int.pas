@@ -5,7 +5,7 @@
 }
 module string_cmline_token_int;
 define string_cmline_token_int;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_cmline_token_int (    {read next command line token as machine int}
   out     i: univ sys_int_machine_t;   {returned integer value}

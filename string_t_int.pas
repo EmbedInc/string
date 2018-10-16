@@ -8,7 +8,7 @@
 }
 module string_t_int;
 define string_t_int;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_t_int (               {convert string to machine integer}
   in      s: univ string_var_arg_t;    {input string}

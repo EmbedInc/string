@@ -4,7 +4,7 @@
 }
 module string_lj;
 define string_lj;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_lj (                  {left justify string by removing leading spaces}
   in out  s: univ string_var_arg_t);   {string}

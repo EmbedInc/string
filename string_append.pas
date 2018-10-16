@@ -6,7 +6,7 @@ define string_append1;
 define string_appendn;
 define string_appends;
 define string_append_token;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 {
 *********************************************************************
 *

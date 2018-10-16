@@ -28,7 +28,7 @@
 }
 module string_f_int_max_base;
 define string_f_int_max_base;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_f_int_max_base (      {make string from max integer, base supplied}
   in out  s: univ string_var_arg_t;    {output string, no leading zeros}

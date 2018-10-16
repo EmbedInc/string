@@ -10,7 +10,7 @@
 }
 module string_find_real_format;
 define string_find_real_format;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_find_real_format (    {get format spec for real number string}
   in      rmin: real;                  {min value real number could have}

@@ -1,8 +1,8 @@
 {   Private insert file for all the string library pascal source modules.
 }
-%include '/cognivision_links/dsee_libs/sys/sys.ins.pas';
-%include '/cognivision_links/dsee_libs/util/util.ins.pas';
-%include '/cognivision_links/dsee_libs/string/string.ins.pas';
+%include 'sys.ins.pas';
+%include 'util.ins.pas';
+%include 'string.ins.pas';
 
 var (string2)
   cmline_next_n: sys_int_machine_t;    {number of next command line token}

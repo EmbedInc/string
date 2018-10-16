@@ -4,8 +4,8 @@ module string_pathname;
 define string_generic_fnam;
 define string_pathname_join;
 define string_pathname_split;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
-%include '/cognivision_links/dsee_libs/string/string_sys.ins.pas';
+%include 'string2.ins.pas';
+%include 'string_sys.ins.pas';
 {
 *******************************************************************
 *

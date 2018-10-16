@@ -5,7 +5,7 @@
 }
 module string_SIZE;
 define string_size;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 function string_size (                 {return memory size of a var string}
   in      len: string_index_t)         {length of var string in characters}

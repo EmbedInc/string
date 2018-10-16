@@ -10,7 +10,7 @@
 }
 module string_token_int;
 define string_token_int;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_token_int (           {get next token and convert to machine integer}
   in      s: univ string_var_arg_t;    {input string}

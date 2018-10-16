@@ -5,7 +5,7 @@
 }
 module string_f_int24h;
 define string_f_int24h;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_f_int24h (            {make HEX string from 24 bit integer}
   in out  s: univ string_var_arg_t;    {output string}

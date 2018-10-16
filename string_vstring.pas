@@ -11,7 +11,7 @@
 }
 module string_vstring;
 define string_vstring;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_vstring (             {make var string from Pascal, C or FTN string}
   in out  s: univ string_var_arg_t;    {var string to fill in}

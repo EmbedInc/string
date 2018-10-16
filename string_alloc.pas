@@ -10,7 +10,7 @@
 }
 module string_ALLOC;
 define string_alloc;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_alloc (               {allocate a string given its size in chars}
   in      len: string_index_t;         {number of characters needed in the string}

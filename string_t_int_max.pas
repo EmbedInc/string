@@ -5,7 +5,7 @@
 }
 module string_t_int_max;
 define string_t_int_max;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_t_int_max (           {convert string to max size integer}
   in      s: univ string_var_arg_t;    {input string}

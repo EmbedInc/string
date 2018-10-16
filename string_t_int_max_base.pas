@@ -28,7 +28,7 @@
 }
 module string_t_int_max_base;
 define string_t_int_max_base;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_t_int_max_base (      {convert string to max int with full features}
   in      s: univ string_var_arg_t;    {input string}

@@ -11,7 +11,7 @@
 }
 module string_equal;
 define string_equal;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 function string_equal (                {check for string same (lengths equal)}
   in      token: univ string_var_arg_t; {first string}

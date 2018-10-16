@@ -9,7 +9,7 @@
 }
 module string_tkpick_s;
 define string_tkpick_s;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_tkpick_s (            {pick legal abbrev from any length token list}
   in      token: univ string_var_arg_t; {to try to pick from list}

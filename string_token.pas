@@ -8,7 +8,7 @@ define string_token_comma;
 define string_token_commasp;
 define string_token_make;
 define string_token_bool;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 {
 *********************************************************************
 *

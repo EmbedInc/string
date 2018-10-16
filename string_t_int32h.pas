@@ -5,7 +5,7 @@
 }
 module string_t_int32h;
 define string_t_int32h;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_t_int32h (            {convert HEX string to 32 bit integer}
   in      s: univ string_var_arg_t;    {input string}

@@ -7,7 +7,7 @@
 }
 module string_fnam_extend;
 define string_fnam_extend;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_fnam_extend (         {make filename with extension}
   in      innam: univ string_var_arg_t; {input file name (may already have extension)}

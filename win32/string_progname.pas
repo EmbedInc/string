@@ -8,8 +8,8 @@
 }
 module string_progname;
 define string_progname;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
-%include '/cognivision_links/dsee_libs/string/string_sys.ins.pas';
+%include 'string2.ins.pas';
+%include 'string_sys.ins.pas';
 
 procedure string_progname (            {get name of program}
   in out  pname: univ string_var_arg_t); {returned string containing program name}

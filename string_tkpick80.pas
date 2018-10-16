@@ -15,7 +15,7 @@
 }
 module string_tkpick80;
 define string_tkpick80;
-%include '/cognivision_links/dsee_libs/string/string2.ins.pas';
+%include 'string2.ins.pas';
 
 procedure string_tkpick80 (            {pick unabbreviated token from list}
   in      token: univ string_var_arg_t; {token}
