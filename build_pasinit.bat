@@ -1,10 +1,8 @@
 @echo off
 rem
-rem   Set up for building a Pascal (.pas suffix) module.
+rem   Set up for building a Pascal module.
 rem
-set srcdir=string
-set libname=string
-set buildname=
+call build_vars
 
 call src_get %srcdir% %libname%.ins.pas
 call src_get %srcdir% %libname%2.ins.pas
@@ -19,6 +17,7 @@ call src_get %srcdir% string8192.ins.pas
 call src_get %srcdir% string_leafname.ins.pas
 call src_get %srcdir% string_treename.ins.pas
 
+call src_getfrom sys base.ins.pas
 call src_getfrom sys sys.ins.pas
 call src_getfrom sys sys_sys.ins.pas
 call src_getfrom sys sys_sys2.ins.pas
