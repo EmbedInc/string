@@ -152,7 +152,8 @@ var
   stat: sys_err_t;                     {completion status}
 
 label
-  next_comp, retry_comp, got_comp, have_comp, cmd_end, done_special, abort;
+  next_comp, retry_comp, next_in_char, got_comp, have_comp, cmd_end,
+  done_special, abort;
 
 begin
   comp.max := size_char(comp.str);     {init local var strings}
@@ -205,7 +206,13 @@ comptype_rel_k: begin                  {get current working directory}
 '/', '\': begin                        {separator between components}
         p := p + 1;                    {set starting index of next component}
         if comp.len > 0 then goto got_comp; {separator ends this component ?}
-        if t.len = 0 then begin        {this character is at start of pathname ?}
+        if                             {special case of following "x:" drive name ?}
+            (t.len >= 2) and           {existing path long enough for "x:" ?}
+            (t.str[t.len] = ':')       {existing path ends in ":" ?}
+            then begin
+          goto next_in_char;           {ignore this char as separator after drive name}
+          end;
+        if no_comp then begin          {this char is at start of new pathname ?}
           case comptype of             {promote the component type by one}
 comptype_noderoot_k: begin
               comptype := comptype_netroot_k;
@@ -224,6 +231,7 @@ comptype_rel_k: begin
       comp.str[comp.len] := iname.str[p];
       end;
     p := p + 1;                        {advance to next character in this component}
+next_in_char:                          {back to handle next INAME character}
     end;                               {back and process this new character}
 {
 *   The next pathname component has been extracted into COMP.
