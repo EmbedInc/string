@@ -6,26 +6,26 @@ define string_treename_local;
 %include 'file.ins.pas';
 %include 'string_sys.ins.pas';
 {
-**********************************************************
+********************************************************************************
 *
 *   Subroutine STRING_TREENAME_LOCAL (INAM, OPTS, TNAM, TSTAT)
 *
 *   Translate the input pathname INAM into a treename in TNAM.  This routine
 *   only translates names for the local file system.  Links to remote machines
-*   are never followed since this can be done in a system-independent
-*   routine.  All flags in OPTS not specifically listed as obeyed are ignored.
-*   This was done so that OPTS can be passed between successive routines without
-*   needing editing.  The obeyed OPTS flags are:
+*   are never followed since this can be done in a system-independent routine.
+*   All flags in OPTS not specifically listed as obeyed are ignored.  This was
+*   done so that OPTS can be passed between successive routines without needing
+*   editing.  The obeyed OPTS flags are:
 *
 *     STRING_TNAMOPT_FLINK_K - For pathnames that resolve to symbolic links, the
 *       link will be followed.  The default is to return the name of the link
 *       without following it.  Note that links are always followed if they are
 *       not the last component of the pathname.
 *
-*     STRING_TNAMOPT_PROC_K - The pathname is to be translated from the point
-*       of view of this process.  Certain pathname elements, like "~", are
-*       process-specific.  By default, process-specific pathname elements
-*       are not translated.
+*     STRING_TNAMOPT_PROC_K - The pathname is to be translated from the point of
+*       view of this process.  Certain pathname elements, like "~", are
+*       process-specific.  By default, process-specific pathname elements are
+*       not translated.
 *
 *     STRING_TNAMOPT_NATIVE_K - The native file system naming conventions will
 *       be used for TNAM.  This flag is neccessary if TNAM is to be passed to
@@ -37,26 +37,26 @@ define string_treename_local;
 *     STRING_TNSTAT_NATIVE_K - The name was fully translated as requested, and
 *       is in native system form.
 *
-*     STRING_TNSTAT_COG_K - The name was fully translated as requested, and
-*       is in Cognivision standard form.
+*     STRING_TNSTAT_COG_K - The name was fully translated as requested, and is
+*       in Embed (formerly Cognivision) portable standard form.
 *
 *     STRING_TNSTAT_REMOTE_K - The name refers to a file system object that
-*       resides on another machine.  Further translation may be required on
-*       that machine.
+*       resides on another machine.  Further translation may be required on that
+*       machine.
 *
 *     STRING_TNSTAT_PROC_K - The name starts with a pathname element that must
 *       be translated by the process "owning" the name.
 *
-*   Note that TNAM may be returned with a different node name than expected
-*   for one of the following reasons:
+*   Note that TNAM may be returned with a different node name than expected for
+*   one of the following reasons:
 *
-*     1 - The path resolves to a file system object on this machine, but
-*         this machine is known by more than one name.  In that case, the
-*         "preferred" name of this machine will be used.
+*     1 - The path resolves to a file system object on this machine, but this
+*         machine is known by more than one name.  In that case, the "preferred"
+*         name of this machine will be used.
 *
-*     2 - The path name resolved to a file system object on another machine,
-*         but that file system object can be accesses transparently with native
-*         OS calls on this machine.
+*     2 - The path name resolved to a file system object on another machine, but
+*         that file system object can be accesses transparently with native OS
+*         calls on this machine.
 }
 var
   envvar_homedrive: string_var16_t :=  {HOMEDRIVE environment variable name}
@@ -72,18 +72,19 @@ procedure string_treename_local (      {translate pathname on local machine only
   val_param;
 
 var
-  i: sys_int_machine_t;                {scratch integer and loop counter}
+  ii: sys_int_machine_t;               {scratch integer and loop counter}
   t: string_var8192_t;                 {current pathname within drive so far}
 {
 *******************************
 *
 *   Local subroutine IMPLICIT_CURRDIR
+*   This routine is local to STRING_TREENAME_LOCAL.
 *
-*   Set T to indicate the current working directory if there is
-*   no accumulated pathname so far (implicitly at current directory).  Since the
-*   current directory can only be determined by the owning process, we only
-*   try to determine the current directory if the flag STRING_TNAMOPT_PROC_K is
-*   set in OPTS.  If it's not, we set the pathname to empty and set TSTAT to
+*   Set T to indicate the current working directory if there is no accumulated
+*   pathname so far (implicitly at current directory).  Since the current
+*   directory can only be determined by the owning process, we only try to
+*   determine the current directory if the flag STRING_TNAMOPT_PROC_K is set in
+*   OPTS.  If it's not, we set the pathname to empty and set TSTAT to
 *   STRING_TNSTAT_PROC_K.
 }
 procedure implicit_currdir;
@@ -115,6 +116,7 @@ begin
 *******************************
 *
 *   Local subroutine DO_PATHNAME (INAME, OPTS)
+*   This routine is local to STRING_TREENAME_LOCAL.
 *
 *   Add the path name elements in INAME to the resulting treename being
 *   accumulated in T.  T always ends in a component name, never the component
@@ -142,7 +144,7 @@ var
   path: string_treename_t;             {scratch pathname for recursive call}
   lnam: string_leafname_t;             {scratch leafname}
 
-  i, j: sys_int_machine_t;             {scratch integers}
+  ii, jj: sys_int_machine_t;           {scratch integers}
   pick: sys_int_machine_t;             {number of keyword picked from list}
   cmds: string_var8192_t;              {full embedded command string}
   cp: string_index_t;                  {CMDS parse index}
@@ -173,20 +175,20 @@ begin
 *   index to the first character of the new component.
 }
 next_comp:                             {start looking for whole new component}
-  comptype := comptype_rel_k;          {init to we are parsing relative name}
+  comptype := comptype_rel_k;          {init to this component is relative to existing path}
 
 retry_comp:                            {try again to find a component}
   st := p;                             {save index to first char of component}
 
-  if p > iname_len then begin          {exhausted INAME ?}
+  if p > iname_len then begin          {done the whole input pathname ?}
     if no_comp or (t.len = 0) then begin {only have implicit pathname ?}
       case comptype of                 {where are we in naming hierarchy}
-  comptype_netroot_k,                  {set return name to machine root}
-  comptype_noderoot_k: begin
+comptype_netroot_k,                    {set return name to machine root}
+comptype_noderoot_k: begin
           sys_sys_rootdir (t);         {get root directory of this machine}
           t.len := t.len - 1;          {truncate trailing "\"}
           end;
-  comptype_rel_k: begin                {get current working directory}
+comptype_rel_k: begin                  {get current working directory}
           implicit_currdir;            {set T to current working directory name}
           if tstat <> string_tnstat_native_k {need to return with special condition ?}
             then goto abort;
@@ -201,9 +203,9 @@ retry_comp:                            {try again to find a component}
 
     case iname.str[p] of               {check for special handling char}
 '/', '\': begin                        {separator between components}
-        p := p + 1;                    {make index of first char in next component}
-        if comp.len > 0 then goto got_comp; {we have a complete pathname component}
-        if no_comp then begin          {we are before first component ?}
+        p := p + 1;                    {set starting index of next component}
+        if comp.len > 0 then goto got_comp; {separator ends this component ?}
+        if t.len = 0 then begin        {this character is at start of pathname ?}
           case comptype of             {promote the component type by one}
 comptype_noderoot_k: begin
               comptype := comptype_netroot_k;
@@ -214,7 +216,7 @@ comptype_rel_k: begin
             end;
           end;                         {end of separator before first component}
         goto retry_comp;               {try again with new component type}
-        end;
+        end;                           {end of pathname separator case}
       end;                             {end of special character cases}
 
     if comp.len < comp.max then begin  {this is just another component character}
@@ -234,17 +236,17 @@ have_comp:                             {pathname component to add is in COMP}
   {
   *   Check for ":", which indicates string preceeding it is a drive name.
   }
-  for i := 1 to comp.len do begin      {scan characters in this component}
-    if comp.str[i] = ':' then begin    {drive letter terminator is at I ?}
-      string_substr (comp, 1, i, t);   {replace accumulated path with drive name}
+  for ii := 1 to comp.len do begin     {scan characters in this component}
+    if comp.str[ii] = ':' then begin   {drive letter terminator is at I ?}
+      string_substr (comp, 1, ii, t);  {replace accumulated path with drive name}
       string_upcase (t);               {drive names are always upper case}
-      i := i + 1;                      {go to first char after drive name}
-      while (i <= comp.len) and ((comp.str[i] = '/') or (comp.str[i] = '\'))
-        do i := i + 1;                 {delete leading component delimiters}
-      for j := i to comp.len do begin  {shift remaining component string to start}
-        comp.str[j-i+1] := comp.str[j];
+      ii := ii + 1;                    {go to first char after drive name}
+      while (ii <= comp.len) and ((comp.str[ii] = '/') or (comp.str[ii] = '\'))
+        do ii := ii + 1;               {delete leading component delimiters}
+      for jj := ii to comp.len do begin {shift remaining component string to start}
+        comp.str[jj-ii+1] := comp.str[jj];
         end;
-      comp.len := comp.len - i + 1;
+      comp.len := comp.len - ii + 1;
       goto have_comp;                  {back to process "new" pathname component}
       end;                             {done handling drive name}
     end;
@@ -289,7 +291,12 @@ comptype_noderoot_k: begin
       if sys_error(stat) then begin
         sys_sys_rootdir (t);           {default to machine root directory}
         end;
-      if t.str[t.len] = '\' then t.len := t.len - 1; {truncate any trailing "\"}
+      if                               {truncate trailing "\", if present}
+          (t.len > 0) and
+          (t.str[t.len] = '\')
+          then begin
+        t.len := t.len - 1;
+        end;
       sys_envvar_get (envvar_homepath, path, stat);
       if not sys_error(stat) then begin {successfully got home directory path name ?}
         do_pathname (                  {resolve home directory pathname}
@@ -304,23 +311,23 @@ comptype_noderoot_k: begin
 
 '(': begin                             {embedded command}
       cmds.len := 0;                   {init command string to empty}
-      for i := 2 to comp.len do begin  {scan remaining characters this component}
-        if comp.str[i] = ')'           {found end of command string character ?}
+      for ii := 2 to comp.len do begin {scan remaining characters this component}
+        if comp.str[ii] = ')'          {found end of command string character ?}
           then goto cmd_end;
         if cmds.len < cmds.max then begin {room for one more character ?}
           cmds.len := cmds.len + 1;    {append this char to end of command name}
-          cmds.str[cmds.len] := comp.str[i];
+          cmds.str[cmds.len] := comp.str[ii];
           end;
         end;                           {back for next cmds char in INAME}
       goto done_special;               {")" missing, not a command ?}
-cmd_end:                               {I is COMP char of command end ")"}
-      lnam.len := comp.len - i;        {leafname length after command}
-      for j := 1 to comp.len do begin  {copy component remainder into COMP}
-        lnam.str[j] := comp.str[i + j];
+cmd_end:                               {II is COMP char of command end ")"}
+      lnam.len := comp.len - ii;       {leafname length after command}
+      for jj := 1 to comp.len do begin {copy component remainder into COMP}
+        lnam.str[jj] := comp.str[ii + jj];
         end;
       {
-      *   The command string inside the parenthesis is in CMDS, and the remaining
-      *   pathname component after the command is in LNAM.
+      *   The command string inside the parenthesis is in CMDS, and the
+      *   remaining pathname component after the command is in LNAM.
       }
       cp := 1;                         {init command parse index}
       string_token (cmds, cp, tk, stat); {get command name from command string}
@@ -342,7 +349,7 @@ cmd_end:                               {I is COMP char of command end ")"}
           if lnam.len <= 0 then goto next_comp; {ignore if no environment var name given}
           if not (string_tnamopt_proc_k in opts) then begin {we don't own pathname ?}
             tstat := string_tnstat_proc_k; {need to be translated by owning process}
-            goto abort;                    {return with special condition}
+            goto abort;                {return with special condition}
             end;
           sys_envvar_get (lnam, comp, stat); {get environment variable value}
           if sys_error(stat) then comp.len := 0; {envvar not found same as empty string}
@@ -375,10 +382,11 @@ otherwise                              {unrecognized command}
 
 done_special:                          {definately done with special handling}
 {
-*   All special syntax in this pathname component, if any, have been resolved and
-*   the result is in COMP.
+*   All special syntax in this pathname component, if any, have been resolved
+*   and the result is in COMP.
 *
-*   Now add this input pathname component to the end of the accumulated treename.
+*   Now add this input pathname component to the end of the accumulated
+*   treename.
 }
   case comptype of                     {where does component fit into hierarchy ?}
 
@@ -414,10 +422,9 @@ comptype_rel_k: begin                  {component is relative to existing path}
   t.str[t.len] := '\';
   string_append (t, comp);             {append this pathname component}
 {
-*   The new pathname component has been added to T.  T_LEN_SAVE is
-*   the length value for T before the pathname was added.  Now check for the
-*   new treename being a symbolic link if links are supposed to be followed
-*   at this point.
+*   The new pathname component has been added to T.  T_LEN_SAVE is the length
+*   value for T before the pathname was added.  Now check for the new treename
+*   being a symbolic link if links are supposed to be followed at this point.
 }
   if                                   {follow if it's a link ?}
       (string_tnamopt_flink_k in opts) or {link following is enabled ?}
@@ -438,30 +445,30 @@ comptype_rel_k: begin                  {component is relative to existing path}
 {
 *   A condition has arisen that prevents us from further processing the input
 *   pathname.  TSTAT is already set to indicate what the condition is.  We now
-*   append the unused part of INAME, starting with the current component, to
-*   the path accumulated so far in T.
+*   append the unused part of INAME, starting with the current component, to the
+*   path accumulated so far in T.
 }
 abort:
   if t.len >= t.max then return;       {punt if overflowed T}
-  i := iname_len - st + 1;             {number of chars in remaining path}
+  ii := iname_len - st + 1;            {number of chars in remaining path}
   if (t.len > 0) and (st <= iname_len) then begin {need separator ?}
     t.len := t.len + 1;                {append "/" separator to T}
     t.str[t.len] := '/';
     end;
-  while i > 0 do begin                 {loop until remaining path exhausted}
+  while ii > 0 do begin                {loop until remaining path exhausted}
     if t.len >= t.max then return;     {punt if overflowed T}
     t.len := t.len + 1;                {apppend this component name character to T}
     if iname.str[st] = '\'             {translate any "\" to "/"}
       then t.str[t.len] := '/'
       else t.str[t.len] := iname.str[st];
     st := st + 1;                      {advance source char index}
-    i := i - 1;                        {one less character to copy}
+    ii := ii - 1;                      {one less character to copy}
     end;                               {back for next char in remaining path}
   end;
 {
 *******************************
 *
-*   Start of main routine.
+*   Start of main routine STRING_TREENAME_LOCAL.
 }
 begin
   t.max := size_char(t.str);           {init local var string}
@@ -477,20 +484,20 @@ begin
           string_append1 (t, '\');     {indicate root directory on drive}
           end;
         end
-      else begin                       {translate to Cognivision naming rules}
+      else begin                       {translate to Embed portable pathname rules}
         tnam.len := 0;                 {init returned treename to empty}
         string_appendn (tnam, '//', 2); {path starts at network root}
         if not nodename_set then string_set_nodename; {make sure NODENAME is all set}
         string_append (tnam, nodename); {add machine name}
         string_append1 (tnam, '/');    {add separator after machine name}
-        for i := 1 to t.len do begin   {once for each character in remaining path}
-          if t.str[i] = '\'
+        for ii := 1 to t.len do begin  {once for each character in remaining path}
+          if t.str[ii] = '\'
             then string_append1 (tnam, '/') {translate "\" to "/"}
-            else string_append1 (tnam, t.str[i]);
+            else string_append1 (tnam, t.str[ii]);
           end;                         {back for next character from T}
         tstat := string_tnstat_cog_k;  {indicate Cognivision naming rules used}
         return;
-        end                            {done handling Cognivision naming requested}
+        end                            {done handling Embed naming requested}
       ;
     end;                               {done handling T was raw native pathname}
 
