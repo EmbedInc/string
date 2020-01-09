@@ -4,7 +4,7 @@
 }
 module string_f_fp_eng;
 define string_f_fp_eng;
-%include '(cog)lib/string2.ins.pas';
+%include 'string2.ins.pas';
 
 var
   umult: array[-5 .. 5] of char := [   {unit multiplier for each power of 1000}
