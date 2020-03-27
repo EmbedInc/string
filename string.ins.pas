@@ -924,6 +924,22 @@ procedure string_parity_off (          {turn parity bits off for all chars in st
   in out  s: univ string_var_arg_t);   {string}
   extern;
 
+procedure string_prepend (             {add one string to front of another}
+  in out  str: univ string_var_arg_t;  {the string to add to the front of}
+  in      add: univ string_var_arg_t); {the string to add}
+  val_param; extern;
+
+procedure string_prependn (            {add N chars to start of string}
+  in out  str: univ string_var_arg_t;  {string to add chars to front of}
+  in      chars: string;               {characters to add}
+  in      n: sys_int_machine_t);       {number of characters to add}
+  val_param; extern;
+
+procedure string_prepends (            {add Pascal string to front of var string}
+  in out  str: univ string_var_arg_t;  {string to prepend to}
+  in      chars: string);              {chars up to NULL or trailing blanks}
+  val_param; extern;
+
 procedure string_progname (            {get name of program}
   in out  pname: univ string_var_arg_t); {returned string containing program name}
   extern;
@@ -956,6 +972,12 @@ procedure string_seq_set (             {set sequence number to new value}
 function string_size (                 {return memory size of a var string}
   in      len: string_index_t)         {length of var string in characters}
   :sys_int_adr_t;                      {returned min memory requirement of string}
+  val_param; extern;
+
+function string_slen (                 {find string length of character sequence}
+  in      chars: string;               {chars, blank padded or NULL terminated}
+  in      maxlen: sys_int_machine_t)   {max possible length of the char sequence}
+  :sys_int_machine_t;                  {0-N string length}
   val_param; extern;
 
 procedure string_substr (              {extract substring from a string}
