@@ -740,6 +740,13 @@ procedure string_fnam_unextend (       {remove filename extension if there}
   in out  ofnam: univ string_var_arg_t); {output file name that will not have extension}
   extern;
 
+function string_fnam_within (          {check for file within a directory}
+  in      fnam: univ string_var_arg_t; {the file to check}
+  in      dir: univ string_var_arg_t;  {directory to check for file being within}
+  in out  wpath: univ string_var_arg_t) {returned path within DIR}
+  :boolean;                            {FNAM is within DIR tree}
+  val_param; extern;
+
 procedure string_fnam_cog_loc (        {fnam from Cognivision standard to local form}
   in      cnam: string_cogname_t;      {input file name in Cognivision format}
   in out  lnam: string_treename_t;     {output file name in local format}

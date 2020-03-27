@@ -50,6 +50,7 @@ string_find.obj
 string_find_real_format.obj
 string_fnam_extend.obj
 string_fnam_unextend.obj
+string_fnam_within.obj
 string_generic_tnam.obj
 string_hash_subs.obj
 string_inet.obj
@@ -60,9 +61,11 @@ string_message.obj
 string_match.obj
 string_pad.obj
 string_parity_off.obj
+string_prepend.obj
 string_screen.obj
 string_seq.obj
 string_size.obj
+string_slen.obj
 string_substr.obj
 string_t_bitsc.obj
 string_t_fp.obj

@@ -62,6 +62,7 @@ call src_pas %srcdir% %libname%_find_real_format %1
 call src_pas %srcdir% %libname%_fnam_extend %1
 call src_pas %srcdir% %libname%_fnam_unextend %1
 call src_pas %srcdir% %libname%_generic_tnam %1
+call src_pas %srcdir% %libname%_fnam_within %1
 call src_pas %srcdir% %libname%_hash_subs %1
 call src_pas %srcdir% %libname%_inet %1
 call src_pas %srcdir% %libname%_len %1
@@ -71,9 +72,11 @@ call src_pas %srcdir% %libname%_message %1
 call src_pas %srcdir% %libname%_match %1
 call src_pas %srcdir% %libname%_pad %1
 call src_pas %srcdir% %libname%_parity_off %1
+call src_pas %srcdir% %libname%_prepend %1
 call src_pas %srcdir% %libname%_screen %1
 call src_pas %srcdir% %libname%_seq %1
 call src_pas %srcdir% %libname%_size %1
+call src_pas %srcdir% %libname%_slen %1
 call src_pas %srcdir% %libname%_substr %1
 call src_pas %srcdir% %libname%_t_bitsc %1
 call src_pas %srcdir% %libname%_t_fp %1
