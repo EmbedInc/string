@@ -9,100 +9,100 @@ call build_pasinit
 
 call src_insall %srcdir% %libname%
 
-call src_pas %srcdir% %libname%_alloc %1
-call src_pas %srcdir% %libname%_append %1
-call src_pas %srcdir% %libname%_append_num %1
-call src_pas %srcdir% %libname%_cmline_set %1
-call src_pas %srcdir% %libname%_cmline_token %1
-call src_pas %srcdir% %libname%_date %1
-call src_pas %srcdir% %libname%_pathname %1
-call src_pas %srcdir% %libname%_progname %1
-call src_pas %srcdir% %libname%_prompt %1
-call src_pas %srcdir% %libname%_readin %1
-call src_pas %srcdir% %libname%_treename_sys %1
-call src_pas %srcdir% %libname%_comblock_sys %1
-call src_pas %srcdir% %libname%_base64 %1
-call src_pas %srcdir% %libname%_bool %1
-call src_pas %srcdir% %libname%_c %1
-call src_pas %srcdir% %libname%_case %1
-call src_pas %srcdir% %libname%_cmline_end_abort %1
-call src_pas %srcdir% %libname%_cmline_init %1
-call src_pas %srcdir% %libname%_cmline_opt_bad %1
-call src_pas %srcdir% %libname%_cmline_parm_check %1
-call src_pas %srcdir% %libname%_cmline_req_check %1
-call src_pas %srcdir% %libname%_cmline_reuse %1
-call src_pas %srcdir% %libname%_cmline_token_fp %1
-call src_pas %srcdir% %libname%_cmline_token_int %1
-call src_pas %srcdir% %libname%_compare %1
-call src_pas %srcdir% %libname%_copy %1
-call src_pas %srcdir% %libname%_debug %1
-call src_pas %srcdir% %libname%_eos %1
-call src_pas %srcdir% %libname%_equal %1
-call src_pas %srcdir% %libname%_f_bits16 %1
-call src_pas %srcdir% %libname%_f_bits32 %1
-call src_pas %srcdir% %libname%_f_bitsc %1
-call src_pas %srcdir% %libname%_f_fp %1
-call src_pas %srcdir% %libname%_f_fp_eng %1
-call src_pas %srcdir% %libname%_f_int %1
-call src_pas %srcdir% %libname%_f_int_max %1
-call src_pas %srcdir% %libname%_f_int_max_base %1
-call src_pas %srcdir% %libname%_f_int8h %1
-call src_pas %srcdir% %libname%_f_int16 %1
-call src_pas %srcdir% %libname%_f_int16h %1
-call src_pas %srcdir% %libname%_f_int24h %1
-call src_pas %srcdir% %libname%_f_int32 %1
-call src_pas %srcdir% %libname%_f_int32h %1
-call src_pas %srcdir% %libname%_f_intco %1
-call src_pas %srcdir% %libname%_f_intrj %1
-call src_pas %srcdir% %libname%_f_macadr %1
-call src_pas %srcdir% %libname%_fifo %1
-call src_pas %srcdir% %libname%_fill %1
-call src_pas %srcdir% %libname%_find %1
-call src_pas %srcdir% %libname%_find_real_format %1
-call src_pas %srcdir% %libname%_fnam_extend %1
-call src_pas %srcdir% %libname%_fnam_unextend %1
-call src_pas %srcdir% %libname%_generic_tnam %1
-call src_pas %srcdir% %libname%_fnam_within %1
-call src_pas %srcdir% %libname%_hash_subs %1
-call src_pas %srcdir% %libname%_inet %1
-call src_pas %srcdir% %libname%_len %1
-call src_pas %srcdir% %libname%_list %1
-call src_pas %srcdir% %libname%_lj %1
-call src_pas %srcdir% %libname%_message %1
-call src_pas %srcdir% %libname%_match %1
-call src_pas %srcdir% %libname%_pad %1
-call src_pas %srcdir% %libname%_parity_off %1
-call src_pas %srcdir% %libname%_prepend %1
-call src_pas %srcdir% %libname%_screen %1
-call src_pas %srcdir% %libname%_seq %1
-call src_pas %srcdir% %libname%_size %1
-call src_pas %srcdir% %libname%_slen %1
-call src_pas %srcdir% %libname%_substr %1
-call src_pas %srcdir% %libname%_t_bitsc %1
-call src_pas %srcdir% %libname%_t_fp %1
-call src_pas %srcdir% %libname%_t_int %1
-call src_pas %srcdir% %libname%_t_int_max %1
-call src_pas %srcdir% %libname%_t_int_max_base %1
-call src_pas %srcdir% %libname%_t_int16o %1
-call src_pas %srcdir% %libname%_t_int32h %1
-call src_pas %srcdir% %libname%_time %1
-call src_pas %srcdir% %libname%_tkpick %1
-call src_pas %srcdir% %libname%_tkpick_s %1
-call src_pas %srcdir% %libname%_tkpick80 %1
-call src_pas %srcdir% %libname%_tkpick80m %1
-call src_pas %srcdir% %libname%_tkpickm %1
-call src_pas %srcdir% %libname%_token %1
-call src_pas %srcdir% %libname%_token_fp %1
-call src_pas %srcdir% %libname%_token_int %1
-call src_pas %srcdir% %libname%_treename %1
-call src_pas %srcdir% %libname%_unpad %1
-call src_pas %srcdir% %libname%_v %1
-call src_pas %srcdir% %libname%_v%libname% %1
-call src_pas %srcdir% %libname%_window %1
-call src_pas %srcdir% %libname%_wipe %1
-call src_pas %srcdir% %libname%_write %1
-call src_pas %srcdir% %libname%_write_blank %1
-call src_pas %srcdir% %libname%_comblock %1
+call src_pas %srcdir% %libname%_alloc
+call src_pas %srcdir% %libname%_append
+call src_pas %srcdir% %libname%_append_num
+call src_pas %srcdir% %libname%_cmline_set
+call src_pas %srcdir% %libname%_cmline_token
+call src_pas %srcdir% %libname%_date
+call src_pas %srcdir% %libname%_pathname
+call src_pas %srcdir% %libname%_progname
+call src_pas %srcdir% %libname%_prompt
+call src_pas %srcdir% %libname%_readin
+call src_pas %srcdir% %libname%_treename_sys
+call src_pas %srcdir% %libname%_comblock_sys
+call src_pas %srcdir% %libname%_base64
+call src_pas %srcdir% %libname%_bool
+call src_pas %srcdir% %libname%_c
+call src_pas %srcdir% %libname%_case
+call src_pas %srcdir% %libname%_cmline_end_abort
+call src_pas %srcdir% %libname%_cmline_init
+call src_pas %srcdir% %libname%_cmline_opt_bad
+call src_pas %srcdir% %libname%_cmline_parm_check
+call src_pas %srcdir% %libname%_cmline_req_check
+call src_pas %srcdir% %libname%_cmline_reuse
+call src_pas %srcdir% %libname%_cmline_token_fp
+call src_pas %srcdir% %libname%_cmline_token_int
+call src_pas %srcdir% %libname%_compare
+call src_pas %srcdir% %libname%_copy
+call src_pas %srcdir% %libname%_debug
+call src_pas %srcdir% %libname%_eos
+call src_pas %srcdir% %libname%_equal
+call src_pas %srcdir% %libname%_f_bits16
+call src_pas %srcdir% %libname%_f_bits32
+call src_pas %srcdir% %libname%_f_bitsc
+call src_pas %srcdir% %libname%_f_fp
+call src_pas %srcdir% %libname%_f_fp_eng
+call src_pas %srcdir% %libname%_f_int
+call src_pas %srcdir% %libname%_f_int_max
+call src_pas %srcdir% %libname%_f_int_max_base
+call src_pas %srcdir% %libname%_f_int8h
+call src_pas %srcdir% %libname%_f_int16
+call src_pas %srcdir% %libname%_f_int16h
+call src_pas %srcdir% %libname%_f_int24h
+call src_pas %srcdir% %libname%_f_int32
+call src_pas %srcdir% %libname%_f_int32h
+call src_pas %srcdir% %libname%_f_intco
+call src_pas %srcdir% %libname%_f_intrj
+call src_pas %srcdir% %libname%_f_macadr
+call src_pas %srcdir% %libname%_fifo
+call src_pas %srcdir% %libname%_fill
+call src_pas %srcdir% %libname%_find
+call src_pas %srcdir% %libname%_find_real_format
+call src_pas %srcdir% %libname%_fnam_extend
+call src_pas %srcdir% %libname%_fnam_unextend
+call src_pas %srcdir% %libname%_generic_tnam
+call src_pas %srcdir% %libname%_fnam_within
+call src_pas %srcdir% %libname%_hash_subs
+call src_pas %srcdir% %libname%_inet
+call src_pas %srcdir% %libname%_len
+call src_pas %srcdir% %libname%_list
+call src_pas %srcdir% %libname%_lj
+call src_pas %srcdir% %libname%_message
+call src_pas %srcdir% %libname%_match
+call src_pas %srcdir% %libname%_pad
+call src_pas %srcdir% %libname%_parity_off
+call src_pas %srcdir% %libname%_prepend
+call src_pas %srcdir% %libname%_screen
+call src_pas %srcdir% %libname%_seq
+call src_pas %srcdir% %libname%_size
+call src_pas %srcdir% %libname%_slen
+call src_pas %srcdir% %libname%_substr
+call src_pas %srcdir% %libname%_t_bitsc
+call src_pas %srcdir% %libname%_t_fp
+call src_pas %srcdir% %libname%_t_int
+call src_pas %srcdir% %libname%_t_int_max
+call src_pas %srcdir% %libname%_t_int_max_base
+call src_pas %srcdir% %libname%_t_int16o
+call src_pas %srcdir% %libname%_t_int32h
+call src_pas %srcdir% %libname%_time
+call src_pas %srcdir% %libname%_tkpick
+call src_pas %srcdir% %libname%_tkpick_s
+call src_pas %srcdir% %libname%_tkpick80
+call src_pas %srcdir% %libname%_tkpick80m
+call src_pas %srcdir% %libname%_tkpickm
+call src_pas %srcdir% %libname%_token
+call src_pas %srcdir% %libname%_token_fp
+call src_pas %srcdir% %libname%_token_int
+call src_pas %srcdir% %libname%_treename
+call src_pas %srcdir% %libname%_unpad
+call src_pas %srcdir% %libname%_v
+call src_pas %srcdir% %libname%_v%libname%
+call src_pas %srcdir% %libname%_window
+call src_pas %srcdir% %libname%_wipe
+call src_pas %srcdir% %libname%_write
+call src_pas %srcdir% %libname%_write_blank
+call src_pas %srcdir% %libname%_comblock
 
 call src_lib %srcdir% %libname%
 call src_msg %srcdir% %libname%

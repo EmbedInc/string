@@ -26,4 +26,5 @@ call src_getfrom file file.ins.pas
 call src_getfrom file file_map.ins.pas
 call src_getfrom math math.ins.pas
 
+make_debug debug_switches.ins.pas
 call src_builddate "%srcdir%"

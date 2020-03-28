@@ -45,8 +45,10 @@ begin
       return;
       end;
 
-    string_append1 (lnam, '/');        {update path within dir}
-    string_prepend (path, lnam);
+    if path.len > 0 then begin         {prepending to existing path ?}
+      string_append1 (lnam, '/');
+      end;
+    string_prepend (path, lnam);       {prepend this leafname to accumulated path}
 
     string_copy (dir, lnam);           {build test pathname}
     string_append1 (lnam, '/');
