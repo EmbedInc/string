@@ -636,7 +636,7 @@ procedure string_f_macadr (            {make string from ethernet MAC address}
 procedure string_f_message (           {expand MSG file message into single string}
   in out  s: univ string_var_arg_t;    {out string, default subsys and msg names}
   in      subsys: string;              {name of subsystem, used to find message file}
-  in      msg: string;                 {message name withing subsystem file}
+  in      msg: string;                 {message name within subsystem file}
   in      parms: univ sys_parm_msg_ar_t; {array of parameter descriptors}
   in      n_parms: sys_int_machine_t); {number of parameters in PARMS}
   val_param; extern;
@@ -644,7 +644,7 @@ procedure string_f_message (           {expand MSG file message into single stri
 function string_f_messaget (           {test for msg, expand to string}
   in out  s: univ string_var_arg_t;    {output string, trashed on message not found}
   in      subsys: univ string_var_arg_t; {subsystem name (generic msg file name)}
-  in      msg: univ string_var_arg_t;  {message name withing message file}
+  in      msg: univ string_var_arg_t;  {message name within message file}
   in      parms: univ sys_parm_msg_ar_t; {array of parameter descriptors}
   in      n_parms: sys_int_machine_t)  {number of parameters in PARMS}
   :boolean;                            {TRUE if message found and S set}
