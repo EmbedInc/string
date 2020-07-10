@@ -49,6 +49,7 @@ call src_pas %srcdir% %libname%_f_int_max_base
 call src_pas %srcdir% %libname%_f_int8h
 call src_pas %srcdir% %libname%_f_int16
 call src_pas %srcdir% %libname%_f_int16h
+call src_pas %srcdir% %libname%_f_int20h
 call src_pas %srcdir% %libname%_f_int24h
 call src_pas %srcdir% %libname%_f_int32
 call src_pas %srcdir% %libname%_f_int32h

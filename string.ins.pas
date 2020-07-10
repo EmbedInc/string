@@ -598,7 +598,12 @@ procedure string_f_int16 (             {make string from 16 bit integer}
 
 procedure string_f_int16h (            {make HEX string from 16 bit integer}
   in out  s: univ string_var_arg_t;    {output string}
-  in      i: sys_int_min16_t);         {input integer, uses low 16 bits}
+  in      i: sys_int_conv16_t);        {input integer, uses low 16 bits}
+  val_param; extern;
+
+procedure string_f_int20h (            {make HEX string from 20 bit integer}
+  in out  s: univ string_var_arg_t;    {output string}
+  in      i: sys_int_conv20_t);        {input integer, uses low 20 bits}
   val_param; extern;
 
 procedure string_f_int24h (            {make HEX string from 24 bit integer}

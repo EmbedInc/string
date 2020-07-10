@@ -38,6 +38,7 @@ string_f_int_max_base.obj
 string_f_int8h.obj
 string_f_int16.obj
 string_f_int16h.obj
+string_f_int20h.obj
 string_f_int24h.obj
 string_f_int32.obj
 string_f_int32h.obj

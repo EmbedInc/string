@@ -1,14 +1,14 @@
-{   Subroutine STRING_F_INT16H (S, I)
+{   Subroutine STRING_F_INT20H (S, I)
 *
 *   Convert 16 bit integer I to a 4 character HEX string in S.
 }
-module string_f_int16h;
-define string_f_int16h;
+module string_f_int20h;
+define string_f_int20h;
 %include 'string2.ins.pas';
 
-procedure string_f_int16h (            {make HEX string from 16 bit integer}
+procedure string_f_int20h (            {make HEX string from 20 bit integer}
   in out  s: univ string_var_arg_t;    {output string}
-  in      i: sys_int_conv16_t);        {input integer, uses low 16 bits}
+  in      i: sys_int_conv20_t);        {input integer, uses low 20 bits}
   val_param;
 
 var
@@ -16,12 +16,12 @@ var
   stat: sys_err_t;                     {error code}
 
 begin
-  im := i & 16#FFFF;                   {into format for convert routine}
+  im := i & 16#FFFFF;                  {into format for convert routine}
   string_f_int_max_base (              {make string from integer}
     s,                                 {output string}
     im,                                {input integer}
     16,                                {number base}
-    4,                                 {output field width}
+    5,                                 {output field width}
     [string_fi_leadz_k,                {write leading zeros}
      string_fi_unsig_k],               {input number is unsigned}
     stat);
