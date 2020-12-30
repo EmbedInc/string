@@ -206,15 +206,14 @@ type
 
   string_bytebuf_t = array[0..65535] of int8u_t; {arbitrary length byte buffer}
 
-  string_chain_ent_p_t =               {points to one link in chain of var strings}
-    ^string_chain_ent_t;
-
+  string_chain_ent_p_t = ^string_chain_ent_t;
   string_chain_ent_t = record          {one entry in linked list of var strings}
     next_p: string_chain_ent_p_t;      {pointer to next entry in chain}
     prev_p: string_chain_ent_p_t;      {pointer to previous entry in chain}
     s: string_var132_t;                {text string at this chain entry}
     end;
 
+  string_list_p_t = ^string_list_t;
   string_list_t = record               {control block for linked list of strings}
     {
     *   User writeable fields.  These fields are set to default values when
@@ -239,9 +238,6 @@ type
     ent_p: string_chain_ent_p_t;       {pointer to chain entry indicated by CURR}
     mem_p: util_mem_context_p_t;       {pointer to memory context used for strings}
     end;
-
-  string_list_p_t =                    {pointer to strings list control block}
-    ^string_list_t;
 {
 *   Data structures for hash tables.  The application program should NEVER
 *   read from or write to any of these structures directly.  Interactions with
@@ -254,9 +250,7 @@ type
   string_hashcre_t =                   {all the STRING_HASH_CREATE flags in one word}
     set of string_hashcre_k_t;
 
-  string_hash_entry_p_t =              {pointer to a hash table entry}
-    ^string_hash_entry_t;
-
+  string_hash_entry_p_t = ^string_hash_entry_t;
   string_hash_entry_t = record         {template for one hash table entry}
     prev_p: string_hash_entry_p_t;     {pointer to previous entry this bucket}
     next_p: string_hash_entry_p_t;     {pointer to next entry this bucket}
@@ -279,6 +273,7 @@ type
     n_after: sys_int_machine_t;        {number of entries at or after chain midpoint}
     end;
 
+  string_hash_p_t = ^string_hash_t;
   string_hash_t = record               {root data structure for a hash table}
     n_buckets: sys_int_machine_t;      {number of bucket divisions, power of 2}
     mask: sys_int_machine_t;           {bucket selection mask, = N_BUCKETS - 1}
@@ -294,8 +289,6 @@ type
       array[0..0] of string_hash_bucket_t;
     end;
 
-  string_hash_p_t =                    {points to a hash table master data block}
-    ^string_hash_t;
 
   string_hash_pos_t = record           {desciptor for a position in a hash table}
     hash_p: string_hash_p_t;           {points to master block for this hash table}
@@ -324,6 +317,12 @@ type
     putind: sys_int_adr_t;             {buffer index where to write next byte}
     getind: sys_int_adr_t;             {buffer index where to read next byte}
     buf: string_bytebuf_t;             {data buffer, allocated to SIZE exactly}
+    end;
+
+  string_fwlist_p_t = ^string_fwlist_t;
+  string_fwlist_t = record             {one forward-only string list entry}
+    next_p: string_fwlist_p_t;         {points to next list entry}
+    str_p: string_var_p_t;             {points to string for this list entry}
     end;
 {
 *   Entry point definitions.
