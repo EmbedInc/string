@@ -68,6 +68,7 @@ string_seq.obj
 string_size.obj
 string_slen.obj
 string_substr.obj
+string_t_angle.obj
 string_t_bitsc.obj
 string_t_fp.obj
 string_t_int.obj

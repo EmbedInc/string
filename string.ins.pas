@@ -998,6 +998,12 @@ procedure string_substr (              {extract substring from a string}
   in out  s2: univ string_var_arg_t);  {output substring}
   val_param; extern;
 
+procedure string_t_angle (             {<degrees>:<minutes>:<seconds> to angle}
+  in      tk: univ string_var_arg_t;   {input string}
+  out     ang: real;                   {resulting angle, radians}
+  out     stat: sys_err_t);            {completion status}
+  val_param; extern;
+
 procedure string_t_base64 (            {encode clear text string to BASE64}
   in      si: univ string_var_arg_t;   {input string, clear text}
   out     so: univ string_var_arg_t);  {output string, BASE64 encoded}

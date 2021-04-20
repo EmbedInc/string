@@ -79,6 +79,7 @@ call src_pas %srcdir% %libname%_seq
 call src_pas %srcdir% %libname%_size
 call src_pas %srcdir% %libname%_slen
 call src_pas %srcdir% %libname%_substr
+call src_pas %srcdir% %libname%_t_angle
 call src_pas %srcdir% %libname%_t_bitsc
 call src_pas %srcdir% %libname%_t_fp
 call src_pas %srcdir% %libname%_t_int
