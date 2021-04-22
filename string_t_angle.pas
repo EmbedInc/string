@@ -125,7 +125,7 @@ begin
 *   Combine the values from each of the fields, and return the result in
 *   radians.
 }
-  min := sec / 60.0;                   {merge minutes and seconds into MIN}
+  min := min + (sec / 60.0);           {merge minutes and seconds into MIN}
   min := min / 60.0;                   {convert result to degrees}
   if neg
     then begin                         {overall value is negative}
