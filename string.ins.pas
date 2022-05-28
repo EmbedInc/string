@@ -679,6 +679,13 @@ function string_fifo_get (             {get next byte from FIFO, blocks until av
   :sys_int_machine_t;                  {0-255 byte value}
   val_param; extern;
 
+function string_fifo_get_tout (        {get next byte from FIFO or timeout}
+  in out  fifo: string_fifo_t;         {the FIFO}
+  in      tout: real;                  {max seconds to wait, or SYS_TIMEOUT_xxx_K}
+  out     b: sys_int_machine_t)        {0-255 byte value, 0 on timeout}
+  :boolean;                            {TRUE on timeout, FALSE on returning with byte}
+  val_param; extern;
+
 procedure string_fifo_lock (           {acquire exclusive access to a FIFO}
   in out  fifo: string_fifo_t);        {the FIFO}
   val_param; extern;

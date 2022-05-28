@@ -3,6 +3,7 @@
 module string_fifo;
 define string_fifo_create;
 define string_fifo_delete;
+define string_fifo_get_tout;
 define string_fifo_get;
 define string_fifo_nempty;
 define string_fifo_nfull;
@@ -77,6 +78,56 @@ begin
 {
 ********************************************************************************
 *
+*   Function STRING_FIFO_GET_TOUT (FIFO, TOUT, B)
+*
+*   Get the next byte from the FIFO, but wait no longer than TOUT seconds.  When
+*   a byte is received within the timeout, the function returns FALSE with the
+*   byte in B.  When no byte is available within the timeout, the function
+*   returns TRUE with B set to 0.
+}
+function string_fifo_get_tout (        {get next byte from FIFO or timeout}
+  in out  fifo: string_fifo_t;         {the FIFO}
+  in      tout: real;                  {max seconds to wait, or SYS_TIMEOUT_xxx_K}
+  out     b: sys_int_machine_t)        {0-255 byte value, 0 on timeout}
+  :boolean;                            {TRUE on timeout, FALSE on returning with byte}
+  val_param;
+
+var
+  stat: sys_err_t;
+
+begin
+  string_fifo_get_tout := true;        {init to timed out}
+
+  while true do begin                  {back here each new attempt to get a byte}
+    if sys_event_wait_tout (           {timed out waiting for byte available ?}
+        fifo.ev_avail,                 {event to wait on}
+        tout,                          {seconds timeout, or SYS_TIMEOUT_xxx_K}
+        stat) then begin
+      b := 0;                          {return fixed byte value}
+      return;
+      end;
+    sys_thread_lock_enter (fifo.lock); {start single threaded access}
+
+    if fifo.nbytes > 0 then begin      {a byte really is available ?}
+      b := fifo.buf[fifo.getind];      {get the next byte}
+      fifo.getind := fifo.getind + 1;  {bump the read index}
+      if fifo.getind >= fifo.size then fifo.getind := 0; {wrap back to buf start}
+      fifo.nbytes := fifo.nbytes - 1;  {count one less byte in the FIFO}
+      if fifo.nbytes > 0 then begin    {still at least another byte available ?}
+        sys_event_notify_bool (fifo.ev_avail);
+        end;
+      sys_event_notify_bool (fifo.ev_nfull); {FIFO is definitely not full now}
+      sys_thread_lock_leave (fifo.lock); {end single threaded access to FIFO}
+      string_fifo_get_tout := false;   {indicate returning with a byte}
+      return;
+      end;
+
+    sys_thread_lock_leave (fifo.lock); {release lock on FIFO}
+    end;                               {back to try again}
+  end;
+{
+********************************************************************************
+*
 *   Function STRING_FIFO_GET (FIFO)
 *
 *   Get the next byte from the FIFO.  If no byte is immediately available (the
@@ -89,28 +140,13 @@ function string_fifo_get (             {get next byte from FIFO, blocks until av
   val_param;
 
 var
-  stat: sys_err_t;
+  b: sys_int_machine_t;                {byte value}
 
 begin
-  while true do begin                  {back here each new attempt to get a byte}
-    sys_event_wait (fifo.ev_avail, stat); {wait for byte to become available}
-    sys_thread_lock_enter (fifo.lock); {start single threaded access}
-
-    if fifo.nbytes > 0 then begin      {a byte really is available ?}
-      string_fifo_get := fifo.buf[fifo.getind]; {get the next byte}
-      fifo.getind := fifo.getind + 1;  {bump the read index}
-      if fifo.getind >= fifo.size then fifo.getind := 0; {wrap back to buf start}
-      fifo.nbytes := fifo.nbytes - 1;  {count one less byte in the FIFO}
-      if fifo.nbytes > 0 then begin    {still at least another byte available ?}
-        sys_event_notify_bool (fifo.ev_avail);
-        end;
-      sys_event_notify_bool (fifo.ev_nfull); {FIFO is definitely not full now}
-      sys_thread_lock_leave (fifo.lock); {end single threaded access to FIFO}
-      return;
-      end;
-
-    sys_thread_lock_leave (fifo.lock); {release lock on FIFO}
-    end;                               {back to try again}
+  discard(                             {wait indefinitely for the next byte}
+    string_fifo_get_tout(fifo, sys_timeout_none_k, b)
+    );
+  string_fifo_get := b;                {return the byte}
   end;
 {
 ********************************************************************************
