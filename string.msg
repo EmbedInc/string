@@ -84,6 +84,9 @@ msg err24
 msg err25
   lan english -def
     The hexadecimal string is too long.
+msg err26
+  lan english -def
+    %p1i is not a valid value in this context.
 /*
 /*********************************************
 /*

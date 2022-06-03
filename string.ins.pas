@@ -37,6 +37,7 @@ const
   string_stat_nothex_k = 23;           {not hexadecimal character}
   string_stat_nhexb_k = 24;            {not whole bytes of hexadecimal characters}
   string_stat_hexlong_k = 25;          {hexadecimal string is too long}
+  string_stat_bad_ival_k = 26;         {bad integer value}
 
 type
   string_fi_k_t = (                    {flags for converting integer to string}
