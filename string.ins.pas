@@ -923,6 +923,10 @@ function string_match (                {strings same up to length of TOKEN}
   :boolean;                            {TRUE if strings match}
   extern;
 
+procedure string_nblanks (             {write N blanks to STDOUT}
+  in      n: sys_int_machine_t);       {number of blanks to write, nothing for <= 0}
+  val_param; extern;
+
 procedure string_pad (                 {extend string to max length by adding blanks}
   in out  s: univ string_var_arg_t);   {string}
   extern;

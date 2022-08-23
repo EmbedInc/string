@@ -1,6 +1,7 @@
 string_alloc.obj
 string_append.obj
 string_append_num.obj
+string_blank.obj
 string_cmline_set.obj
 string_cmline_token.obj
 string_date.obj

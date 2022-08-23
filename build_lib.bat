@@ -12,6 +12,7 @@ call src_insall %srcdir% %libname%
 call src_pas %srcdir% %libname%_alloc
 call src_pas %srcdir% %libname%_append
 call src_pas %srcdir% %libname%_append_num
+call src_pas %srcdir% %libname%_blank
 call src_pas %srcdir% %libname%_cmline_set
 call src_pas %srcdir% %libname%_cmline_token
 call src_pas %srcdir% %libname%_date
