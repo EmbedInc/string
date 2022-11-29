@@ -87,6 +87,9 @@ msg err25
 msg err26
   lan english -def
     %p1i is not a valid value in this context.
+msg err27
+  lan english -def
+    Syntax error in logic analyzer type T1 date/time string "%p1s".
 /*
 /*********************************************
 /*

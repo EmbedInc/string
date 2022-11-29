@@ -36,6 +36,7 @@ call src_pas %srcdir% %libname%_cmline_token_fp
 call src_pas %srcdir% %libname%_cmline_token_int
 call src_pas %srcdir% %libname%_compare
 call src_pas %srcdir% %libname%_copy
+call src_pas %srcdir% %libname%_csvana
 call src_pas %srcdir% %libname%_debug
 call src_pas %srcdir% %libname%_eos
 call src_pas %srcdir% %libname%_equal

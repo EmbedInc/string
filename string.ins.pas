@@ -38,6 +38,7 @@ const
   string_stat_nhexb_k = 24;            {not whole bytes of hexadecimal characters}
   string_stat_hexlong_k = 25;          {hexadecimal string is too long}
   string_stat_bad_ival_k = 26;         {bad integer value}
+  string_stat_bad_csvana_t1_k = 27;    {bad logic analyzer type T1 date/time string}
 
 type
   string_fi_k_t = (                    {flags for converting integer to string}
@@ -1032,6 +1033,12 @@ procedure string_t_bool (              {convert string to Boolean}
   in      flags: string_tftype_t;      {selects which T/F types are allowed}
   out     t: boolean;                  {TRUE: true, yes, on, FALSE: false, no, off}
   out     stat: sys_err_t);            {completion status code}
+  val_param; extern;
+
+procedure string_t_csvana_t1 (         {interpret logic analyzer type 1 time format}
+  in      s: univ string_var_arg_t;    {input string, YYY-MM-DDTHH:MM:SS.SSS+hh:mm}
+  out     t: sys_clock_t;              {resulting absolute time}
+  out     stat: sys_err_t);            {completion status}
   val_param; extern;
 
 procedure string_t_date1 (             {make date/time from string}
