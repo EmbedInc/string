@@ -35,6 +35,9 @@ define string_t_csvana_t1;
 *
 *     hh:mm  -  Time zone offset in hours and minutes from coor univ time.
 *
+*   Alternatively, the entire field can be a floating point value.  If so, T is
+*   returned that value.
+*
 *   Some flexibility in the length of the above fields is allowed.  This routine
 *   was written to work with examples of this time format, without any specs.
 *   It is therefore unclear what variations from the examples are allowed.
@@ -61,6 +64,18 @@ label
 
 begin
   tk.max := size_char(tk.str);         {init local var string}
+{
+*   Try interpreting whole field as a floating point value.  If that works, T is
+*   returned the floating point value.
+}
+  string_t_fp2 (s, r, stat);           {try to interpret at floating point string}
+  if not sys_error(stat) then begin    {was floating point string ?}
+    t := sys_clock_from_fp_abs (r);    {make absolute time value}
+    return;
+    end;
+{
+*   The input string is not just a floating point value.
+}
   p := 1;                              {init parse index into input string}
 
   string_token_anyd (                  {get year}
