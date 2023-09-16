@@ -26,26 +26,19 @@ procedure string_append_bin (          {append binary integer to string}
   val_param;
 
 var
-  ival: sys_int_machine_t;             {input value with unused bits set to 0}
-  tk: string_var32_t;                  {the string to append}
-  stat: sys_err_t;                     {completion status}
+  b: sys_int_machine_t;                {sequential bit number}
+  mask: sys_int_machine_t;             {mask for the current bit}
+  c: char;                             {character to append for each bit}
 
 begin
-  tk.max := size_char(tk.str);         {init local var string}
-
-  ival := ii & ~lshft(~0, nb);         {make input value with unused bits masked off}
-  string_f_int_max_base (              {make the binary string}
-    tk,                                {output string}
-    ival,                              {input value}
-    2,                                 {number base}
-    nb,                                {fixed field width}
-    [ string_fi_leadz_k,               {write leading zeros}
-      string_fi_unsig_k],              {consider the input value to be unsigned}
-    stat);
-
-  if not sys_error(stat) then begin
-    string_append (str, tk);
-    end;
+  for b := nb-1 downto 0 do begin      {loop over each bit to write}
+    mask := lshft(1, b);               {mask for this bit}
+    c := '0';                          {init char to write for this bit}
+    if (ii & mask) <> 0 then begin     {this bit is 1 ?}
+      c := '1';
+      end;
+    string_append1 (str, c);           {write this bit}
+    end;                               {back for next bit}
   end;
 {
 ********************************************************************************
