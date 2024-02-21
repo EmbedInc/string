@@ -58,6 +58,7 @@ call src_pas %srcdir% %libname%_f_int32h
 call src_pas %srcdir% %libname%_f_intco
 call src_pas %srcdir% %libname%_f_intrj
 call src_pas %srcdir% %libname%_f_macadr
+call src_pas %srcdir% %libname%_f_month
 call src_pas %srcdir% %libname%_fifo
 call src_pas %srcdir% %libname%_fill
 call src_pas %srcdir% %libname%_find

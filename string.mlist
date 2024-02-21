@@ -50,6 +50,7 @@ string_f_intrj.obj
 string_f_int_max.obj
 string_f_int_max_base.obj
 string_f_macadr.obj
+string_f_month.obj
 string_generic_tnam.obj
 string_hash_subs.obj
 string_inet.obj

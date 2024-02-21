@@ -656,6 +656,16 @@ function string_f_messaget (           {test for msg, expand to string}
   :boolean;                            {TRUE if message found and S set}
   val_param; extern;
 
+procedure string_f_mon (               {get 3-char month name, like "Jan" "Feb"}
+  in out  mstr: univ string_var_arg_t; {output string, empty for out of range month}
+  in      month: sys_int_machine_t);   {1-12 number of month within year}
+  val_param; extern;
+
+procedure string_f_month (             {get full month name, like "January" "February"}
+  in out  mstr: univ string_var_arg_t; {output string, empty for out of range month}
+  in      month: sys_int_machine_t);   {1-12 number of month within year}
+  val_param; extern;
+
 procedure string_f_screen (            {convert system screen handle to a string}
   in out  s: univ string_var_arg_t;    {output string}
   in      screen: sys_screen_t);       {input handle to the screen}
