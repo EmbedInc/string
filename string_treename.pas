@@ -5,9 +5,9 @@ define string_treename_opts;
 define string_treename;
 define string_treename_machine;
 define string_set_nodename;
-%include '(cog)source/string/string2.ins.pas';
-%include '(cog)source/file/file.ins.pas';
-%include '(cog)source/file/cogserve.ins.pas';
+%include 'string2.ins.pas';
+%include 'file.ins.pas';
+%include 'cogserve.ins.pas';
 {
 **********************************************************
 *
