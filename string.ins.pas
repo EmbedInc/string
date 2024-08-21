@@ -829,6 +829,11 @@ procedure string_hash_delete (         {delete hash table, deallocate resources}
   in out  hash_h: string_hash_handle_t); {hash table to delete, returned invalid}
   val_param; extern;
 
+function string_hash_mem (             {get memory context hash table is allocated from}
+  in      hash_h: string_hash_handle_t) {handle to the hash table}
+  :util_mem_context_p_t;               {pointer to the memory context}
+  val_param; extern;
+
 procedure string_hash_mem_alloc_del (  {allocate mem from hash context, can dealloc}
   in      hash_h: string_hash_handle_t; {handle to hash table}
   in      size: sys_int_adr_t;         {amount of memory to allocate}

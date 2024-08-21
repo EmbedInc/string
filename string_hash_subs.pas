@@ -13,6 +13,7 @@ define string_hash_pos_next;
 define string_hash_mem_alloc_del;
 define string_hash_mem_alloc_ndel;
 define string_hash_mem_dealloc;
+define string_hash_mem;
 %include 'string2.ins.pas';
 %include 'math.ins.pas';
 
@@ -670,4 +671,24 @@ var
 begin
   hash_p := hash_h;
   util_mem_ungrab (p, hash_p^.mem_p^);
+  end;
+{
+********************************************************************************
+*
+*   Function STRING_HASH_MEM (HASH_H)
+*
+*   Get the pointer to the memory context that all the dynamic memory of a hash
+*   table is allocated under.  HASH_H is the handle to the hash table.
+}
+function string_hash_mem (             {get memory context hash table is allocated from}
+  in      hash_h: string_hash_handle_t) {handle to the hash table}
+  :util_mem_context_p_t;               {pointer to the memory context}
+  val_param;
+
+var
+  hash_p: string_hash_p_t;             {points to hash table admin block}
+
+begin
+  hash_p := hash_h;
+  string_hash_mem := hash_p^.mem_p;    {return pointer to the memory context}
   end;
