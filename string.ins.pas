@@ -333,7 +333,7 @@ procedure string_alloc (               {allocate a string given its size in char
   in      len: string_index_t;         {number of characters needed in the string}
   in out  mem: util_mem_context_t;     {memory context to allocate string under}
   in      ind: boolean;                {TRUE if need to individually dealloc string}
-  out     str_p: univ_ptr);            {pointer to var string.  MAX, LEN filled in}
+  out     str_p: string_var_p_t);      {to new string, MAX = old LEN, LEN = 0}
   val_param; extern;
 
 procedure string_append (              {append one string onto another}
@@ -485,6 +485,13 @@ procedure string_downcase (            {change all upper case chars to lower cas
 function string_downcase_char (        {make lower case version of char}
   in      c: char)                     {character to return lower case of}
   :char;                               {always lower case}
+  val_param; extern;
+
+procedure string_duplicate (           {create duplicate of existing string}
+  in      instr: univ string_var_arg_t; {the string to duplicate}
+  in out  mem: util_mem_context_t;     {memory context to allocate string under}
+  in      ind: boolean;                {TRUE if need to individually dealloc string}
+  out     str_p: string_var_p_t);      {to new string, MAX set to LEN of INSTR}
   val_param; extern;
 
 function string_eos (                  {test for END OF STRING status}

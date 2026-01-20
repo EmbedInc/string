@@ -16,19 +16,17 @@ procedure string_alloc (               {allocate a string given its size in char
   in      len: string_index_t;         {number of characters needed in the string}
   in out  mem: util_mem_context_t;     {memory context to allocate string under}
   in      ind: boolean;                {TRUE if need to individually dealloc string}
-  out     str_p: univ_ptr);            {pointer to var string.  MAX, LEN filled in}
+  out     str_p: string_var_p_t);      {to new string, MAX = old LEN, LEN = 0}
   val_param;
-
-var
-  vstr_p: string_var_p_t;              {pointer to new string}
 
 begin
   util_mem_grab (                      {allocate memory for new var string}
     string_size(len),                  {amount of memory needed for this string}
     mem,                               {context under which to allocate memory}
     ind,                               {TRUE if need to individually deallocate str}
-    vstr_p);                           {returned pointer to the new string}
-  vstr_p^.max := len;                  {init new var string}
-  vstr_p^.len := 0;
-  str_p := vstr_p;                     {pass back pointer to new string}
+    str_p);                            {returned pointer to the new string}
+  util_mem_grab_err_bomb (str_p, string_size(len));
+
+  str_p^.max := len;                   {init new var string}
+  str_p^.len := 0;
   end;

@@ -23,6 +23,7 @@ string_copy.obj
 string_csvana.obj
 string_date.obj
 string_debug.obj
+string_duplicate.obj
 string_eos.obj
 string_equal.obj
 string_fifo.obj
